@@ -2,6 +2,7 @@ language: go
 go:
  - release
  - tip
+before_script:
+ - cd echoServer; go build; ./echoServer &
 script:
- - cd echoServer; go build; ./echoServer &; cd ../
  - go test -v
