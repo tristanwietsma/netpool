@@ -3,6 +3,6 @@ go:
  - release
  - tip
 before_script:
- - cd echoServer; go build; ./echoServer &
+ - cd echoServer; go build; ./echoServer &; cd ../
 script:
  - go test -v
