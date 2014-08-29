@@ -3,13 +3,9 @@ go:
  - release
  - tip
 before_script:
- - pwd
  - cd echoServer
  - go build
  - ./echoServer &
- - pwd
  - cd ../
- - pwd
 script:
- - pwd
  - go test -v
