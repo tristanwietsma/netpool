@@ -1,0 +1,7 @@
+language: go
+go:
+ - release
+ - tip
+script:
+ - cd echoServer; go build; ./echoServer &; cd ../
+ - go test -v
