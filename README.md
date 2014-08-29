@@ -1,5 +1,7 @@
 # tcpool
 
+[![Build Status](https://travis-ci.org/tristanwietsma/tcpool.svg?branch=master)](https://travis-ci.org/tristanwietsma/tcpool)
+
 TCP Connection Pool
 
 ## Install
