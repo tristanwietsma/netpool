@@ -10,6 +10,29 @@ go get github.com/tristanwietsma/tcpool
 
 ## Usage
 
+### Create a connection pool
+
 ```go
-p, err := NewConnectionPool(<server ip address>, <pool size>)
+p, err := tcpool.NewConnectionPool("<server ip address>", <pool size>)
+```
+
+### Get a connection from the pool
+
+```go
+c, err := p.Connect()
+```
+
+### Use a connection
+
+Connections implement `Write` and `Read`.
+
+```go
+err := c.Write([]byte("ping"))
+msg, err := c.Read()
+```
+
+### Return a connection to the pool
+
+```go
+p.Release(c)
 ```
