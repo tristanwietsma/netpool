@@ -1,7 +1,6 @@
 package main
 
 import (
-    "fmt"
     "net"
 )
 
@@ -15,7 +14,6 @@ func main() {
         go func(c net.Conn) {
             buf := make([]byte, 1024)
             c.Read(buf)
-            fmt.Println("got: ", string(buf))
             c.Write([]byte("pong"))
         }(conn)
     }
