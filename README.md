@@ -36,3 +36,7 @@ msg, err := c.Read()
 ```go
 p.Release(c)
 ```
+
+## Testing
+
+Build and start the `echoServer`, then `go test` as normal.
