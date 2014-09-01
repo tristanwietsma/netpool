@@ -1,6 +1,6 @@
 # tcpool
 
-[![Build Status](https://travis-ci.org/tristanwietsma/tcpool.svg?branch=master)](https://travis-ci.org/tristanwietsma/tcpool)
+[![Build Status](https://travis-ci.org/tristanwietsma/tcpool.svg?branch=master)](https://travis-ci.org/tristanwietsma/tcpool) [![GoDoc](https://godoc.org/github.com/tristanwietsma/tcpool?status.svg)](http://godoc.org/github.com/tristanwietsma/tcpool)
 
 TCP Connection Pool
 
