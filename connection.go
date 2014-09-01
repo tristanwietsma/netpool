@@ -6,6 +6,7 @@ type Connection struct {
     conn net.Conn
 }
 
+// Returns a TCP connection to `address`.
 func NewConnection(address string) (*Connection, error) {
     conn, err := net.Dial("tcp", address)
     c := Connection{
