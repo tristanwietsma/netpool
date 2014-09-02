@@ -1,13 +1,13 @@
-# tcpool
+# netpool
 
-[![Build Status](https://travis-ci.org/tristanwietsma/tcpool.svg?branch=master)](https://travis-ci.org/tristanwietsma/tcpool) [![GoDoc](https://godoc.org/github.com/tristanwietsma/tcpool?status.svg)](http://godoc.org/github.com/tristanwietsma/tcpool)
+[![Build Status](https://travis-ci.org/tristanwietsma/netpool.svg?branch=master)](https://travis-ci.org/tristanwietsma/netpool) [![GoDoc](https://godoc.org/github.com/tristanwietsma/netpool?status.svg)](http://godoc.org/github.com/tristanwietsma/netpool)
 
-TCP Connection Pool
+Connection Pool
 
 ## Install
 
 ```bash
-go get github.com/tristanwietsma/tcpool
+go get github.com/tristanwietsma/netpool
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ go get github.com/tristanwietsma/tcpool
 ### Create a connection pool
 
 ```go
-p, err := tcpool.NewConnectionPool("<server ip address>", <pool size>)
+p, err := netpool.NewConnectionPool("<type>", "<server ip address>", <pool size>)
 ```
 
 ### Get a connection from the pool
