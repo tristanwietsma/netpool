@@ -1,6 +1,9 @@
 package netpool
 
-import "sync"
+import (
+	"log"
+	"sync"
+)
 
 type ConnectionPool struct {
 	sync.Mutex
@@ -19,7 +22,9 @@ func NewConnectionPool(network, address string, size uint) (*ConnectionPool, err
 	p.address = address
 	p.conn = make(chan *Connection, size)
 	conn, err := NewConnection(network, address)
-	p.conn <- conn
+	if err == nil {
+		p.conn <- conn
+	}
 	return &p, err
 }
 
@@ -42,5 +47,11 @@ func (p *ConnectionPool) Connect() (*Connection, error) {
 }
 
 func (p *ConnectionPool) Release(c *Connection) {
-	p.conn <- c
+	if c.IsClosed {
+		p.Lock()
+		p.size--
+		p.Unlock()
+	} else {
+		p.conn <- c
+	}
 }

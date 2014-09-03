@@ -1,8 +1,8 @@
 package netpool
 
 import (
+	"log"
 	"net"
-	"time"
 )
 
 type Connection struct {
@@ -16,8 +16,9 @@ func NewConnection(network, address string) (*Connection, error) {
 	c := Connection{
 		conn: conn,
 	}
-	if err == nil {
-		c.IsClosed = true
+	if err != nil {
+		log.Printf("netpool: error on dial. %v\n", err)
+		c.Close()
 	}
 	return &c, err
 }
@@ -25,7 +26,8 @@ func NewConnection(network, address string) (*Connection, error) {
 func (c *Connection) Write(msg []byte) error {
 	_, err := c.conn.Write(msg)
 	if err != nil {
-		c.IsClosed = true
+		log.Printf("netpool: error on write. %v\n", err)
+		c.Close()
 	}
 	return err
 }
@@ -34,7 +36,8 @@ func (c *Connection) Read() ([]byte, error) {
 	buf := make([]byte, 1024)
 	nb, err := c.conn.Read(buf)
 	if err != nil {
-		c.IsClosed = true
+		log.Printf("netpool: error on read. %v\n", err)
+		c.Close()
 	}
 	return buf[:nb], err
 }
