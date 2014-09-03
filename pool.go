@@ -1,9 +1,6 @@
 package netpool
 
-import (
-	"log"
-	"sync"
-)
+import "sync"
 
 type ConnectionPool struct {
 	sync.Mutex
